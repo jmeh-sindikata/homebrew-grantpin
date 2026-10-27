@@ -1,6 +1,6 @@
 cask "grantpin" do
-  version "0.2.2"
-  sha256 "37f275f948893cd1a0d5c78f3e34abc6983a379de6cfa81acffac92e44d78370"
+  version "0.2.3"
+  sha256 "05fe81d2aa486eb436f9045bc7d05f739b441ed66e8c79673d1769d31d822ebe"
 
   url "https://github.com/jmeh-sindikata/grantpin/releases/download/v#{version}/grantpin-#{version}.dmg"
   name "grantpin"

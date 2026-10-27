@@ -5,7 +5,7 @@ cask "grantpin" do
   url "https://github.com/jmeh-sindikata/grantpin/releases/download/v#{version}/grantpin-#{version}.dmg"
   name "grantpin"
   desc "Local secrets broker for AI coding agents"
-  homepage "https://jmeh-sindikata.github.io/grantpin-web/"
+  homepage "https://grantpin.dev/"
 
   livecheck do
     url :url

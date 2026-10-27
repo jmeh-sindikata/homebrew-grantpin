@@ -2,7 +2,7 @@
 
 Homebrew tap for [grantpin](https://github.com/jmeh-sindikata/grantpin), a local secrets broker for AI coding agents. It keeps your secrets in an encrypted vault on your Mac and hands them to an agent only when you approve the request (Touch ID or your password). grantpin is a notarized macOS menu-bar app plus a `grantpin` command-line tool. macOS 14 (Sonoma) or later.
 
-More: [landing page](https://jmeh-sindikata.github.io/grantpin-web/) and the [main repository](https://github.com/jmeh-sindikata/grantpin).
+More: [landing page](https://grantpin.dev/) and the [main repository](https://github.com/jmeh-sindikata/grantpin).
 
 ## Install
 

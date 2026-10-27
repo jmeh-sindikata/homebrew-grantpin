@@ -17,21 +17,28 @@ cask "grantpin" do
   app "grantpin.app"
   binary "#{appdir}/grantpin.app/Contents/Helpers/grantpin-daemon.app/Contents/MacOS/grantpin"
 
-  uninstall launchctl: "dev.grantpin.daemon",
-            quit:      "dev.grantpin.app"
+  # No `launchctl:` here: Homebrew runs the uninstall stanza on every upgrade
+  # too, which removed the background service each time. The app's
+  # Settings > Uninstall (or `grantpin service uninstall`) removes it; zap
+  # removes it as well.
+  uninstall quit: "dev.grantpin.app"
 
-  zap trash: [
-    "~/Library/Application Support/grantpin",
-    "~/Library/LaunchAgents/dev.grantpin.daemon.plist",
-    "~/Library/Logs/grantpin",
-    "~/Library/Preferences/dev.grantpin.app.plist",
-  ]
+  zap launchctl: "dev.grantpin.daemon",
+      trash:     [
+        "~/Library/Application Support/grantpin",
+        "~/Library/LaunchAgents/dev.grantpin.daemon.plist",
+        "~/Library/Logs/grantpin",
+        "~/Library/Preferences/dev.grantpin.app.plist",
+      ]
 
   caveats <<~EOS
     Open grantpin from Applications once to create the vault and install the
     background service.
 
-    `brew uninstall --zap` deletes the vault with all your secrets.
+    Upgrades keep the background service. Plain `brew uninstall` does not
+    remove it: use Settings > Uninstall in the app first, or run
+    `grantpin service uninstall`. `brew uninstall --zap` removes it too and
+    deletes the vault with all your secrets.
 
     The Secure Enclave key in the Keychain is removed only by the app's own
     Settings > Uninstall.
